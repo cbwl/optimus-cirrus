@@ -23,7 +23,7 @@ import optimus.buildtool.cache.SimpleArtifactCache
 import optimus.buildtool.cache.dht.DHTStore
 import optimus.buildtool.cache.dht.LocalDhtServer
 import optimus.buildtool.utils.CompilePathBuilder
-import optimus.dht.client.api.DHTClientBuilder
+// import optimus.dht.client.api.DHTClientBuilder
 import optimus.dht.client.api.registry.StaticRegistryObserver
 import optimus.platform._
 
@@ -84,7 +84,7 @@ import optimus.platform._
     val forcedReadThroughStores: Set[DHTStore] = cmdLine.crossRegionReadThroughDHTLocations.apar
       .withFilter(!_.equalsIgnoreCase(NoneArg))
       .map { location =>
-        new DHTStore(pathBuilder, DHTStore.zkClusterType(location), version, cacheMode, DHTStore.ZkBuilder(location))
+        new DHTStore(pathBuilder, DHTStore.zkClusterType(location), version, cacheMode/* , DHTStore.ZkBuilder(location) */)
       }
       .toSet
     if (forcedReadThroughStores.nonEmpty) {
@@ -102,7 +102,7 @@ import optimus.platform._
       cacheType: String,
       cacheMode: CacheMode = defaultCacheMode,
       version: String = defaultVersion
-  ): RemoteArtifactCache = {
+  ): RemoteArtifactCache = ??? /* {
 
     val store = cmdLine.dhtRemoteStore match {
       case NoneArg =>
@@ -125,7 +125,7 @@ import optimus.platform._
 
     }
     getCrossRegionPopulatingCache(store, cacheMode, version)
-  }
+  } */
 
 }
 

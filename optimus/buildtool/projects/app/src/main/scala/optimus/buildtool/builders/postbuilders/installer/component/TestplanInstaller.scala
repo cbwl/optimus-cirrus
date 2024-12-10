@@ -33,7 +33,7 @@ import optimus.buildtool.utils.AssetUtils
 import optimus.scalacompat.collection._
 import optimus.platform.util.Log
 import optimus.platform._
-import optimus.tools.testplan.model.TestplanField.TestCases
+// import optimus.tools.testplan.model.TestplanField.TestCases
 
 import scala.jdk.CollectionConverters._
 import scala.collection.immutable.Seq
@@ -448,7 +448,7 @@ final class TestplanInstaller(
     testModulesFiles ++ testplanFile
   }
 
-  private def validateUniqueTestCaseNames(testplan: TestPlan): Unit = {
+  private def validateUniqueTestCaseNames(testplan: TestPlan): Unit = ??? /* {
     val testCaseColumn = testplan.headers.indexOf(TestCases.toString)
     val duplicateTestNames = testplan.values
       .groupBy(t => t(testCaseColumn))
@@ -463,6 +463,6 @@ final class TestplanInstaller(
            |Please make sure the test group names in the .testplan.json file are not the same.""".stripMargin
       throw new IllegalStateException(msg)
     }
-  }
+  } */
 
 }
